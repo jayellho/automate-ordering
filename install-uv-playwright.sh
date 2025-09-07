@@ -95,7 +95,24 @@ install_browsers() {
   fi
 }
 
+mv_env() {
+  local src_file=".env"
+  local dest_file=".env_default"
+
+  if [[ -f "$src_file" ]]; then
+    if [[ -f "$dest_file" ]]; then
+      warn "$dest_file already exists. Not overwriting."
+    else
+      mv "$src_file" "$dest_file"
+      log "Renamed $src_file to $dest_file"
+    fi
+  else
+    warn "$src_file does not exist. Nothing to rename."
+  fi
+}
+
 main() {
+  mv_env
   ensure_path_contains_local_bin
   install_uv_if_needed
   create_or_use_venv

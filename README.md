@@ -26,11 +26,10 @@ uv pip install pytest-playwright
 uv pip install dotenv
 playwright install
 ```
-3. Fill in the below with your authentication details and copy and paste into a `.env` file.
+3. Fill in the below with your authentication details in `.env_default` and copy and paste into a `.env` file.
 ```
 USER=<your-nassau-candy-username>
 PW=<your-nassau-candy-pw>
-SITE=<site-to-visit>
 ```
 </details>
 
