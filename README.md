@@ -22,8 +22,7 @@ wget -qO- https://astral.sh/uv/install.sh | sh
 ```bash
 uv venv order-venv
 source order-venv/bin/activate
-uv pip install pytest-playwright
-uv pip install dotenv
+uv pip install -r requirements.txt
 playwright install
 ```
 3. Fill in the below with your authentication details in `.env_default` and copy and paste into a `.env` file.
@@ -34,7 +33,8 @@ PW=<your-nassau-candy-pw>
 </details>
 
 ## Getting started
-1. Run the automation script.
-```
-python main.py
+1. Get `service_account.json` from JL and place it in the project root directory. This contains the credentials to authenticate to the GCP service account created.
+2. Run `scrape.py` which updates the master list of items on Google Sheets.
+```python
+python scrape.py --categories "Confections" # you can append more categories as needed.
 ```
